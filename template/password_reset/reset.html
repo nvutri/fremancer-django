@@ -1,0 +1,30 @@
+{% extends "password_reset/base.html" %}{% load i18n %}{% load url from future %}
+{% load staticfiles %}
+
+{% block message %}
+{% if invalid %}
+{% url 'password_reset_recover' as recovery_url %}
+<p>
+  {% blocktrans %}
+  Sorry, this password reset link is invalid. You can still <a href="{{ recovery_url }}">request a new one</a>.
+  {% endblocktrans %}</p>
+{% else %}
+<p>
+  {% blocktrans %}
+  Hi, <strong>{{ username }}</strong>. Please choose your new password.{% endblocktrans %}
+</p>
+<form id="resetPasswordForm" method="post" action="{% url 'password_reset_reset' token %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-primary" type="submit" value="Set new password">Set new password</button>
+</form>
+{% endif %}
+{% endblock %}
+{% block jslib %}
+<script
+    data-main="{% static 'js/alsta_users/password_reset' %}"
+    src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js">
+</script>
+{% endblock %}
+{% block inline_scripts %}
+{% endblock %}

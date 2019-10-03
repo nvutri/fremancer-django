@@ -1,0 +1,4 @@
+Main text Font: Questa Sans Black
+Slogan Text Font: Namo
+Color HEX: #7ACCBE
+Color HSL: undefined undefined undefined

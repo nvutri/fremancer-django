@@ -1,0 +1,28 @@
+# Python files
+*.pyc
+
+# Eclispe PyCharm projects.
+.idea/
+.project
+.pydevproject
+
+# Project documentations.
+doc/
+
+# Nohup log file.
+nohup.out
+*.log
+*.bak
+
+# Wiki repo.
+wiki/
+
+# Media.
+media/
+
+.DS_Store
+
+db.sqlite3
+migrations
+app.js
+.env
